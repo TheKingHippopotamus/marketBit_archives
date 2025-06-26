@@ -274,455 +274,167 @@
             transform: scale(1.56);
         }
         @media (max-width: 768px) {
-            .follow-btn, .x-share-btn-custom {
-                min-width: 90px;
-                min-height: 32px;
-                font-size: 0.93em;
-                padding: 6px 8px;
-                border-radius: 18px;
-                font-family: 'Heebo', 'Segoe UI', sans-serif;
-                font-weight: 700;
-                letter-spacing: 0.01em;
-                box-shadow: 0 2px 8px rgba(78,84,200,0.10);
-                gap: 7px;
+            body {
+                padding: 0;
+                background: var(--gradient-primary);
             }
-            .follow-btn .x-icon, .x-share-btn-custom .x-icon {
-                width: 18px;
-                height: 18px;
-                min-width: 18px;
-                min-height: 18px;
-            }
-            .follow-btn .x-icon img, .x-share-btn-custom .x-icon img {
-                width: 16px;
-                height: 16px;
-                transform: scale(1.56);
-            }
-        }
-        
-        .content {
-            padding: 40px 30px;
-            color: var(--text-dark);
-        }
-        
-        .welcome-section {
-            background: rgba(233, 69, 96, 0.1);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        
-        .welcome-section h2 {
-            color: var(--accent-color);
-            margin-bottom: 15px;
-            font-size: 1.8em;
-        }
-        
-        .welcome-section p {
-            color: var(--text-dark);
-            font-size: 1.1em;
-            margin-bottom: 20px;
-        }
-        
-        .articles-grid {
-            display: flex;
-            overflow-x: auto;
-            gap: 30px;
-            margin-top: 30px;
-            padding: 20px 0;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-        }
-        
-        .articles-grid::-webkit-scrollbar {
-            height: 8px;
-        }
-        
-        .articles-grid::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: 4px;
-        }
-        
-        .articles-grid::-webkit-scrollbar-thumb {
-            background: var(--highlight-color);
-            border-radius: 4px;
-        }
-        
-        .articles-grid::-webkit-scrollbar-thumb:hover {
-            background: #d63384;
-        }
-        
-        .article-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            width: 350px;
-            height: 350px;
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        
-        .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .article-ticker {
-            background: var(--gradient-accent);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9em;
-            display: inline-block;
-            margin-bottom: 15px;
-        }
-        
-        .article-title {
-            font-size: 1.3em;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--text-dark);
-            line-height: 1.4;
-        }
-        
-        .article-summary {
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.6;
-            display: -webkit-box;
-            line-clamp: 3; -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        
-        .article-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.9em;
-            color: #888;
-        }
-        
-        .article-link {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        
-        .article-link:hover {
-            background: var(--gradient-accent);
-            transform: translateY(-2px);
-        }
-        
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: var(--text-light);
-        }
-        
-        .loading i {
-            font-size: 2em;
-            color: var(--highlight-color);
-            animation: spin 2s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .no-articles {
-            text-align: center;
-            padding: 40px;
-            color: var(--text-light);
-        }
-        
-        .no-articles i {
-            font-size: 3em;
-            color: var(--highlight-color);
-            margin-bottom: 20px;
-        }
-        
-        .disclaimer {
-            background: rgba(255, 193, 7, 0.1);
-            border: 1px solid rgba(255, 193, 7, 0.3);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 30px 0;
-            color: var(--text-light);
-            font-size: 0.9em;
-            line-height: 1.6;
-        }
-        
-        .disclaimer strong {
-            color: #ffc107;
-            display: block;
-            margin-bottom: 10px;
-        }
-        
-        .disclaimer h3 {
-            background: linear-gradient(45deg, #ffffff, #e94560);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-top: 15px;
-            margin-bottom: 0;
-            font-size: 1.2em;
-        }
-        
-        .footer {
-            background: var(--gradient-primary);
-            color: var(--text-light);
-            padding: 20px 30px;
-            text-align: center;
-            font-size: 0.9em;
-            opacity: 0.8;
-        }
-        
-        .footer .timestamp {
-            margin-bottom: 5px;
-        }
-        
-        .footer .source {
-            font-style: italic;
-        }
-        
-        .scroll-hint {
-            display: none;
-            text-align: center;
-            color: var(--highlight-color);
-            font-size: 1.1em;
-            margin-bottom: 10px;
-            opacity: 0.85;
-            user-select: none;
-            pointer-events: none;
-            font-weight: 500;
-            letter-spacing: 0.02em;
-        }
-        .scroll-hint i {
-            font-size: 1.5em;
-            vertical-align: middle;
-            margin: 0 5px;
-            animation: bounce-x 1.5s infinite;
-        }
-        @keyframes bounce-x {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(12px); }
-        }
-        @media (max-width: 768px) {
             .container {
                 width: 100vw;
                 max-width: 100vw;
-                border-radius: 0 10px 20px 0;
+                border-radius: 0 0 18px 18px;
                 padding: 0;
-                margin: 0 -22px 0 0;
-                right: 0;
-                left: auto;
-                position: relative;
+                margin: 0;
                 border: none;
-                background: transparent;
+                background: rgba(255,255,255,0.98);
+                box-shadow: 0 2px 16px rgba(26,26,46,0.10);
             }
-            .content, .welcome-section {
-                color: var(--text-dark);
-            }
-            .welcome-section h1, .welcome-section h2, .welcome-section p {
-                color: var(--text-dark);
-                text-align: center;
-            }
-            .articles-grid {
-                gap: 20px;
-                padding: 15px 0;
-            }
-            
-            .article-card {
-                width: 300px;
-                height: 300px;
-                padding: 20px;
-            }
-            
             .header-content {
                 flex-direction: column;
-                gap: 10px;
+                gap: 18px;
                 text-align: center;
+                padding: 28px 8px 18px 8px;
             }
-            
             .logo-section {
                 flex-direction: column;
                 align-items: center;
-                gap: 4px;
-                max-width: 100vw;
+                gap: 8px;
                 width: 100%;
             }
             .logo-container {
-                width: 56px;
-                height: 56px;
-                aspect-ratio: 1/1;
-                border-radius: 50%;
-                overflow: hidden;
-                box-shadow: var(--shadow-accent);
+                width: 72px;
+                height: 72px;
+                margin-bottom: 4px;
+                box-shadow: 0 4px 18px rgba(233,69,96,0.13);
             }
             .logo-image {
-                width: 48px;
-                height: 48px;
+                width: 64px;
+                height: 64px;
                 border-radius: 50%;
                 object-fit: cover;
-                aspect-ratio: 1/1;
+                box-shadow: 0 2px 8px rgba(15,52,96,0.10);
             }
             .brand-info {
-                max-width: 260px;
+                max-width: 90vw;
                 width: 100%;
-                overflow: visible;
-                text-overflow: unset;
-                white-space: normal;
-                word-break: break-word;
                 text-align: center;
+                margin-bottom: 0;
             }
             .brand-name {
-                font-size: 0.98em;
-                font-weight: 700;
+                font-size: 1.25em;
+                font-weight: 800;
                 margin-bottom: 2px;
                 letter-spacing: 0.01em;
-                white-space: normal;
-                background: linear-gradient(45deg, #ffffff 0%, #e94560 100%);
+                background: linear-gradient(45deg, #1a1a2e 0%, #e94560 100%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
                 text-fill-color: transparent;
             }
             .brand-subtitle {
-                font-size: 0.78em;
-                opacity: 0.85;
+                font-size: 1em;
+                opacity: 0.92;
                 font-weight: 500;
+                margin-bottom: 0;
             }
             .social-section {
-                gap: 5px;
+                gap: 8px;
                 flex-wrap: wrap;
                 justify-content: center;
+                margin-top: 6px;
             }
-            .scroll-hint {
-                display: block;
+            .follow-btn {
+                min-width: 120px;
+                min-height: 40px;
+                font-size: 1.05em;
+                padding: 8px 18px;
+                border-radius: 22px;
+                box-shadow: 0 2px 8px rgba(29,161,242,0.10);
+                font-weight: 700;
             }
-            html, body {
-                max-width: 100vw;
-                overflow-x: hidden;
+            .follow-btn .x-icon {
+                width: 22px;
+                height: 22px;
+                min-width: 22px;
+                min-height: 22px;
+                background: #fff;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: 4px;
+            }
+            .follow-btn .x-icon img {
+                width: 16px;
+                height: 16px;
+            }
+            .content {
+                padding: 18px 6px 10px 6px;
+                color: var(--text-dark);
             }
             .welcome-section {
-                background: rgba(255,255,255,0.85) !important;
-                padding: 18px 10px !important;
+                background: rgba(233, 69, 96, 0.08) !important;
+                padding: 14px 6px !important;
+                border-radius: 12px;
+                margin-bottom: 18px;
+                box-shadow: 0 2px 8px rgba(233,69,96,0.07);
             }
-            .welcome-section h1 {
-                font-size: 1.4em !important;
+            .welcome-section h2 {
+                font-size: 1.15em;
+                margin-bottom: 7px;
             }
             .welcome-section p {
-                font-size: 0.98em !important;
+                font-size: 0.98em;
+                margin-bottom: 7px;
             }
-            .newsletter-section > div:first-child {
-                color: #e6b800 !important; /* not too bright yellow */
+            ul {
+                padding: 0;
+                margin: 0 0 18px 0;
+                list-style: none;
             }
-            #welcome-toggle-btn {
+            ul li {
+                background: linear-gradient(90deg, #f8f9fa 0%, #e9ecef 100%);
+                margin-bottom: 10px;
+                border-radius: 12px;
+                box-shadow: 0 2px 8px rgba(15,52,96,0.07);
+                padding: 12px 10px;
+                font-size: 1.05em;
+                font-weight: 500;
                 display: flex;
                 align-items: center;
-                justify-content: center;
-                gap: 8px;
-                width: 100%;
-                background: linear-gradient(90deg, #14171a 0%, #1da1f2 100%);
-                color: #fff;
-                border-radius: 30px;
+                justify-content: flex-start;
+                transition: background 0.2s;
+            }
+            ul li a {
+                color: var(--accent-color);
+                text-decoration: none;
                 font-weight: 700;
-                font-size: 1em;
-                box-shadow: 0 4px 16px rgba(29,161,242,0.10);
-                border: none;
-                outline: none;
-                cursor: pointer;
-                padding: 10px 22px;
-                margin: 0 0 12px 0;
+                font-size: 1.08em;
+                word-break: break-all;
+                transition: color 0.2s;
+            }
+            ul li a:hover {
+                color: var(--highlight-color);
+            }
+            .footer {
+                background: var(--gradient-primary);
+                color: var(--text-light);
+                padding: 18px 6px;
                 text-align: center;
-                letter-spacing: 0.03em;
-                transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
-                animation: welcomePulse 1.6s infinite alternate;
-            }
-            #welcome-toggle-btn:active, #welcome-toggle-btn:focus {
-                background: linear-gradient(90deg, #1da1f2 0%, #14171a 100%);
-                color: #fff;
-                outline: none;
-            }
-            @keyframes welcomePulse {
-                0% {
-                    box-shadow: 0 0 0 0 rgba(29,161,242,0.18), 0 4px 16px rgba(29,161,242,0.10);
-                }
-                100% {
-                    box-shadow: 0 0 16px 8px rgba(29,161,242,0.22), 0 4px 16px rgba(29,161,242,0.10);
-                }
-            }
-            .welcome-section {
-                transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
-                overflow: hidden;
-                max-height: 0;
-                opacity: 0;
-                margin-bottom: 0;
-            }
-            .welcome-section.open {
-                max-height: 900px;
-                opacity: 1;
-                margin-bottom: 30px;
-            }
-            #newsletter-toggle-btn {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 8px;
-                width: 100%;
-                background: linear-gradient(90deg, #14171a 0%, #1da1f2 100%);
-                color: #fff;
-                border-radius: 30px;
-                font-weight: 700;
-                font-size: 1em;
-                box-shadow: 0 4px 16px rgba(29,161,242,0.10);
-                border: none;
-                outline: none;
-                cursor: pointer;
-                padding: 10px 22px;
-                margin: 0 0 12px 0;
-                text-align: center;
-                letter-spacing: 0.03em;
-                transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
-                animation: welcomePulse 1.6s infinite alternate;
-            }
-            #newsletter-toggle-btn:active, #newsletter-toggle-btn:focus {
-                background: linear-gradient(90deg, #1da1f2 0%, #14171a 100%);
-                color: #fff;
-                outline: none;
-            }
-            .newsletter-section {
-                transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
-                overflow: hidden;
-                max-height: 0;
-                opacity: 0;
-                margin-bottom: 0;
-            }
-            .newsletter-section.open {
-                max-height: 900px;
-                opacity: 1;
-                margin-bottom: 24px;
+                font-size: 0.98em;
+                border-radius: 0 0 18px 18px;
+                box-shadow: 0 -2px 8px rgba(26,26,46,0.10);
+                margin-top: 18px;
             }
         }
         @media (max-width: 480px) {
-            .logo-container { width: 48px !important; height: 48px !important; }
-            .logo-image { width: 40px !important; height: 40px !important; }
-            .brand-name { font-size: 1em !important; }
-            .brand-subtitle { font-size: 0.8em !important; }
-            .header-content { gap: 10px !important; }
+            .logo-container { width: 54px !important; height: 54px !important; }
+            .logo-image { width: 44px !important; height: 44px !important; }
+            .brand-name { font-size: 1.05em !important; }
+            .brand-subtitle { font-size: 0.92em !important; }
+            .header-content { gap: 8px !important; }
+            .welcome-section { padding: 8px 2px !important; }
+            ul li { font-size: 0.98em; padding: 10px 6px; }
+            .footer { font-size: 0.93em; padding: 12px 2px; }
         }
         .search-bar {
             width: 100%;
@@ -831,8 +543,107 @@
             <div style="margin: 30px 0;">
                 <h3 style="color: var(--accent-color); margin-bottom: 12px;">רשימת דפי ארכיון:</h3>
                 <ul style="list-style: inside disc; font-size: 1.1em; color: var(--text-dark);">
+                    <!-- 20250619 -->
+                    <li><a href="public/archive/AAPL_20250619.html">AAPL_20250619.html</a></li>
+                    <li><a href="public/archive/ABT_20250619.html">ABT_20250619.html</a></li>
+                    <li><a href="public/archive/AEP_20250619.html">AEP_20250619.html</a></li>
+                    <li><a href="public/archive/AES_20250619.html">AES_20250619.html</a></li>
+                    <li><a href="public/archive/AMD_20250619.html">AMD_20250619.html</a></li>
+                    <li><a href="public/archive/AMZN_20250619.html">AMZN_20250619.html</a></li>
+                    <li><a href="public/archive/ASML_20250619.html">ASML_20250619.html</a></li>
+                    <li><a href="public/archive/AVGO_20250619.html">AVGO_20250619.html</a></li>
+                    <li><a href="public/archive/AXP_20250619.html">AXP_20250619.html</a></li>
+                    <li><a href="public/archive/BA_20250619.html">BA_20250619.html</a></li>
+                    <li><a href="public/archive/BAC_20250619.html">BAC_20250619.html</a></li>
+                    <li><a href="public/archive/BILL_20250619.html">BILL_20250619.html</a></li>
+                    <li><a href="public/archive/BLK_20250619.html">BLK_20250619.html</a></li>
+                    <li><a href="public/archive/BRO_20250619.html">BRO_20250619.html</a></li>
+                    <li><a href="public/archive/C_20250619.html">C_20250619.html</a></li>
+                    <li><a href="public/archive/COIN_20250618.html">COIN_20250618.html</a></li>
+                    <li><a href="public/archive/COO_20250619.html">COO_20250619.html</a></li>
+                    <li><a href="public/archive/COST_20250619.html">COST_20250619.html</a></li>
+                    <li><a href="public/archive/CRWD_20250619.html">CRWD_20250619.html</a></li>
+                    <li><a href="public/archive/CSCO_20250619.html">CSCO_20250619.html</a></li>
+                    <li><a href="public/archive/CVS_20250619.html">CVS_20250619.html</a></li>
+                    <li><a href="public/archive/DDOG_20250619.html">DDOG_20250619.html</a></li>
+                    <li><a href="public/archive/DIS_20250619.html">DIS_20250619.html</a></li>
+                    <li><a href="public/archive/DOV_20250619.html">DOV_20250619.html</a></li>
+                    <li><a href="public/archive/DUK_20250619.html">DUK_20250619.html</a></li>
+                    <li><a href="public/archive/EFX_20250619.html">EFX_20250619.html</a></li>
+                    <li><a href="public/archive/EOG_20250619.html">EOG_20250619.html</a></li>
+                    <li><a href="public/archive/ETSY_20250619.html">ETSY_20250619.html</a></li>
+                    <li><a href="public/archive/FE_20250619.html">FE_20250619.html</a></li>
+                    <li><a href="public/archive/FOX_20250619.html">FOX_20250619.html</a></li>
+                    <li><a href="public/archive/FSLR_20250619.html">FSLR_20250619.html</a></li>
+                    <li><a href="public/archive/FTNT_20250619.html">FTNT_20250619.html</a></li>
+                    <li><a href="public/archive/GILD_20250619.html">GILD_20250619.html</a></li>
+                    <li><a href="public/archive/GOOGL_20250619.html">GOOGL_20250619.html</a></li>
+                    <li><a href="public/archive/GS_20250619.html">GS_20250619.html</a></li>
+                    <li><a href="public/archive/HON_20250619.html">HON_20250619.html</a></li>
+                    <li><a href="public/archive/HOOD_20250618.html">HOOD_20250618.html</a></li>
+                    <li><a href="public/archive/HUM_20250619.html">HUM_20250619.html</a></li>
+                    <li><a href="public/archive/INTC_20250619.html">INTC_20250619.html</a></li>
+                    <li><a href="public/archive/INTU_20250619.html">INTU_20250619.html</a></li>
+                    <li><a href="public/archive/JBL_20250619.html">JBL_20250619.html</a></li>
+                    <li><a href="public/archive/JNJ_20250619.html">JNJ_20250619.html</a></li>
+                    <li><a href="public/archive/JPM_20250619.html">JPM_20250619.html</a></li>
+                    <li><a href="public/archive/KMX_20250619.html">KMX_20250619.html</a></li>
+                    <li><a href="public/archive/LMT_20250619.html">LMT_20250619.html</a></li>
+                    <li><a href="public/archive/LLY_20250618.html">LLY_20250618.html</a></li>
+                    <li><a href="public/archive/MA_20250619.html">MA_20250619.html</a></li>
+                    <li><a href="public/archive/MAR_20250619.html">MAR_20250619.html</a></li>
+                    <li><a href="public/archive/MCHP_20250619.html">MCHP_20250619.html</a></li>
+                    <li><a href="public/archive/MDT_20250619.html">MDT_20250619.html</a></li>
+                    <li><a href="public/archive/META_20250619.html">META_20250619.html</a></li>
+                    <li><a href="public/archive/MRK_20250619.html">MRK_20250619.html</a></li>
+                    <li><a href="public/archive/MRVL_20250619.html">MRVL_20250619.html</a></li>
+                    <li><a href="public/archive/MS_20250619.html">MS_20250619.html</a></li>
+                    <li><a href="public/archive/MSFT_20250619.html">MSFT_20250619.html</a></li>
+                    <li><a href="public/archive/MU_20250619.html">MU_20250619.html</a></li>
+                    <li><a href="public/archive/NFLX_20250619.html">NFLX_20250619.html</a></li>
+                    <li><a href="public/archive/NUE_20250619.html">NUE_20250619.html</a></li>
+                    <li><a href="public/archive/NVDA_20250619.html">NVDA_20250619.html</a></li>
+                    <li><a href="public/archive/PCG_20250619.html">PCG_20250619.html</a></li>
+                    <li><a href="public/archive/PFE_20250619.html">PFE_20250619.html</a></li>
+                    <li><a href="public/archive/PGR_20250619.html">PGR_20250619.html</a></li>
+                    <li><a href="public/archive/PLTR_20250619.html">PLTR_20250619.html</a></li>
+                    <li><a href="public/archive/QCOM_20250619.html">QCOM_20250619.html</a></li>
+                    <li><a href="public/archive/ROKU_20250619.html">ROKU_20250619.html</a></li>
+                    <li><a href="public/archive/RTX_20250619.html">RTX_20250619.html</a></li>
+                    <li><a href="public/archive/SHOP_20250619.html">SHOP_20250619.html</a></li>
+                    <li><a href="public/archive/SNAP_20250619.html">SNAP_20250619.html</a></li>
+                    <li><a href="public/archive/SNOW_20250619.html">SNOW_20250619.html</a></li>
+                    <li><a href="public/archive/T_20250619.html">T_20250619.html</a></li>
+                    <li><a href="public/archive/TMUS_20250619.html">TMUS_20250619.html</a></li>
+                    <li><a href="public/archive/TSLA_20250619.html">TSLA_20250619.html</a></li>
+                    <li><a href="public/archive/TTD_20250619.html">TTD_20250619.html</a></li>
+                    <li><a href="public/archive/TXN_20250619.html">TXN_20250619.html</a></li>
+                    <li><a href="public/archive/UBER_20250619.html">UBER_20250619.html</a></li>
+                    <li><a href="public/archive/UNH_20250619.html">UNH_20250619.html</a></li>
+                    <li><a href="public/archive/USB_20250619.html">USB_20250619.html</a></li>
+                    <li><a href="public/archive/V_20250619.html">V_20250619.html</a></li>
+                    <li><a href="public/archive/WBD_20250619.html">WBD_20250619.html</a></li>
+                    <li><a href="public/archive/WDAY_20250619.html">WDAY_20250619.html</a></li>
+                    <li><a href="public/archive/WFC_20250619.html">WFC_20250619.html</a></li>
+                    <li><a href="public/archive/WMT_20250619.html">WMT_20250619.html</a></li>
+                    <li><a href="public/archive/XOM_20250619.html">XOM_20250619.html</a></li>
                     <li><a href="public/archive/ZS_20250619.html">ZS_20250619.html</a></li>
-                    <!-- ניתן להוסיף כאן קישורים נוספים לדפי ארכיון -->
+                    
+                    <!-- 20250618 -->
+                    <li><a href="public/archive/AAPL_20250618.html">AAPL_20250618.html</a></li>
+                    <li><a href="public/archive/AMD_20250618.html">AMD_20250618.html</a></li>
+                    <li><a href="public/archive/AMZN_20250618.html">AMZN_20250618.html</a></li>
+                    <li><a href="public/archive/AVGO_20250618.html">AVGO_20250618.html</a></li>
+                    <li><a href="public/archive/GOOGL_20250618.html">GOOGL_20250618.html</a></li>
+                    <li><a href="public/archive/JPM_20250618.html">JPM_20250618.html</a></li>
+                    <li><a href="public/archive/META_20250618.html">META_20250618.html</a></li>
+                    <li><a href="public/archive/MSFT_20250618.html">MSFT_20250618.html</a></li>
+                    <li><a href="public/archive/NVDA_20250618.html">NVDA_20250618.html</a></li>
+                    <li><a href="public/archive/PLTR_20250618.html">PLTR_20250618.html</a></li>
+                    <li><a href="public/archive/TSLA_20250618.html">TSLA_20250618.html</a></li>
+                    <li><a href="public/archive/UNH_20250618.html">UNH_20250618.html</a></li>
+                    <li><a href="public/archive/V_20250618.html">V_20250618.html</a></li>
+                    <li><a href="public/archive/XOM_20250618.html">XOM_20250618.html</a></li>
                 </ul>
             </div>
         </div>
