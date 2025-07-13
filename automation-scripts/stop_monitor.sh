@@ -1,26 +1,45 @@
 #!/bin/bash
 
-# סקריפט עצירה לניטור ארכיון
-# Stop Archive Monitor Script
+# Archive Automation System - Stop Script
+# This script stops the automated archive monitoring system
 
-echo "🛑 עוצר ניטור ארכיון..."
+echo "🛑 Stopping Archive Automation System..."
 
-# חיפוש תהליכי Python שמריצים את הסקריפט
-PIDS=$(pgrep -f "auto_github.py")
+# Find and kill the automation process
+AUTOMATION_PID=$(pgrep -f "auto_github.py")
 
-if [ -z "$PIDS" ]; then
-    echo "✅ לא נמצאו תהליכי ניטור פעילים"
-else
-    echo "🔍 נמצאו תהליכים: $PIDS"
-    echo "🔄 עוצר תהליכים..."
-    
-    for PID in $PIDS; do
-        echo "עוצר תהליך $PID..."
-        kill $PID
-    done
-    
-    echo "✅ כל תהליכי הניטור הופסקו"
+if [ -z "$AUTOMATION_PID" ]; then
+    echo "ℹ️ No automation process found running"
+    exit 0
 fi
 
+echo "📋 Found automation process (PID: $AUTOMATION_PID)"
+
+# Try graceful shutdown first
+echo "🔄 Attempting graceful shutdown..."
+kill -TERM $AUTOMATION_PID
+
+# Wait a few seconds for graceful shutdown
+sleep 3
+
+# Check if process is still running
+if kill -0 $AUTOMATION_PID 2>/dev/null; then
+    echo "⚠️ Process still running, forcing shutdown..."
+    kill -KILL $AUTOMATION_PID
+    sleep 1
+fi
+
+# Final check
+if kill -0 $AUTOMATION_PID 2>/dev/null; then
+    echo "❌ Failed to stop automation process"
+    exit 1
+else
+    echo "✅ Automation system stopped successfully"
+fi
+
+# Show final status
 echo ""
-echo "📊 לוגים זמינים ב: automation-scripts/archive_monitor.log" 
+echo "📊 Final Status:"
+echo "   - Automation process: Stopped"
+echo "   - Logs available in: automation-scripts/logs/"
+echo "   - To restart: ./automation-scripts/start_monitor.sh" 

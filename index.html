@@ -17,7 +17,7 @@
             --gradient-primary: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             --gradient-accent: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%);
             --shadow-primary: 0 20px 40px rgba(26, 26, 46, 0.15);
-            --shadow-accent: 0 10px 30px hsl(283, 47%, 78%);
+            --shadow-accent: 0 10px 30px lab(23% 22.33 -20.05);
         }
         
         * {
@@ -150,6 +150,8 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
         }
         
         .brand-subtitle {
@@ -166,6 +168,8 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             transition: all 0.3s ease;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
         }
         
         .brand-subtitle:hover {
@@ -367,10 +371,21 @@
                 width: 16px;
                 height: 16px;
             }
-            .content {
-                padding: 18px 6px 10px 6px;
-                color: var(--text-dark);
-            }
+                    .content {
+            padding: 18px 6px 10px 6px;
+            color: var(--text-dark);
+            position: relative;
+        }
+        
+        .content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #e74c3c, #f39c12, #f1c40f, #27ae60, #3498db, #9b59b6);
+        }
             .welcome-section {
                 background: rgba(233, 69, 96, 0.08) !important;
                 padding: 14px 6px !important;
@@ -520,37 +535,73 @@
             padding: 0;
         }
         .archive-card {
-            background: linear-gradient(120deg, #f8f9fa 60%, #e9ecef 100%);
-            border-radius: 18px;
-            box-shadow: 0 2px 12px rgba(15,52,96,0.08);
-            padding: 18px 18px 14px 18px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+            padding: 20px 16px 16px 16px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            transition: box-shadow 0.18s, transform 0.18s, background 0.18s;
-            border: 1.5px solid #f1f1f1;
+            transition: all 0.3s ease;
+            border: 2px solid #34495e;
             cursor: pointer;
             position: relative;
-            min-height: 80px;
+            min-height: 90px;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+        }
+        
+        .archive-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #e74c3c, #f39c12, #f1c40f, #27ae60, #3498db, #9b59b6);
+        }
+        
+        .archive-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #e74c3c, #f39c12, #f1c40f, #27ae60, #3498db, #9b59b6);
+        }
+        
+        .archive-card::after {
+            content: 'ARCHIVE';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            font-size: 0.7em;
+            color: rgba(255,255,255,0.4);
+            font-weight: bold;
+            letter-spacing: 1px;
         }
         .archive-card:hover, .archive-card:focus {
-            box-shadow: 0 6px 24px rgba(233,69,96,0.13);
-            background: linear-gradient(120deg, #fff 60%, #f8f9fa 100%);
-            transform: translateY(-2px) scale(1.02);
-            border-color: #e94560;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            transform: translateY(-3px) scale(1.03);
+            border-color: #e74c3c;
         }
         .archive-ticker {
-            font-size: 1.25em;
-            font-weight: 800;
-            color: var(--accent-color);
-            margin-bottom: 4px;
-            letter-spacing: 0.03em;
+            font-size: 1.4em;
+            font-weight: 900;
+            color: #ecf0f1;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
         .archive-date {
-            font-size: 0.98em;
-            color: #888;
-            font-weight: 500;
+            font-size: 0.9em;
+            color: #bdc3c7;
+            font-weight: 600;
             margin-bottom: 0;
+            letter-spacing: 1px;
+            font-family: 'Courier New', monospace;
         }
         .archive-link {
             text-decoration: none;
@@ -595,7 +646,7 @@
             </div>
         </div>
         <div class="content">
-            <div class="welcome-section open" style="background: rgba(233, 69, 96, 0.08);">
+            <div class="welcome-section open" style="background: rgba(45, 1, 54, 0.759);">
                 <h2 style="color: var(--accent-color);">ברוכים הבאים לארכיון</h2>
                 <p>כאן תוכלו למצוא דפי מחקר ישנים שהוסרו מהמערכת הראשית, לצורך עיון היסטורי בלבד.</p>
                 <p>הדפים מוצגים כפי שהיו בעת פרסומם, ללא עדכון או אחריות לתוכנם.</p>
@@ -604,106 +655,106 @@
                 <h3 style="color: var(--accent-color); margin-bottom: 12px;">רשימת דפי ארכיון:</h3>
                 <div class="archive-grid">
                     <!-- 20250619 -->
-                    <a class="archive-link" href="public/archive/AAPL_20250619.html"><div class="archive-card"><div class="archive-ticker">AAPL</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/ABT_20250619.html"><div class="archive-card"><div class="archive-ticker">ABT</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/AEP_20250619.html"><div class="archive-card"><div class="archive-ticker">AEP</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/AES_20250619.html"><div class="archive-card"><div class="archive-ticker">AES</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/AMD_20250619.html"><div class="archive-card"><div class="archive-ticker">AMD</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/AMZN_20250619.html"><div class="archive-card"><div class="archive-ticker">AMZN</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/ASML_20250619.html"><div class="archive-card"><div class="archive-ticker">ASML</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/AVGO_20250619.html"><div class="archive-card"><div class="archive-ticker">AVGO</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/AXP_20250619.html"><div class="archive-card"><div class="archive-ticker">AXP</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/BA_20250619.html"><div class="archive-card"><div class="archive-ticker">BA</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/BAC_20250619.html"><div class="archive-card"><div class="archive-ticker">BAC</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/BILL_20250619.html"><div class="archive-card"><div class="archive-ticker">BILL</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/BLK_20250619.html"><div class="archive-card"><div class="archive-ticker">BLK</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/BRO_20250619.html"><div class="archive-card"><div class="archive-ticker">BRO</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/C_20250619.html"><div class="archive-card"><div class="archive-ticker">C</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/COIN_20250618.html"><div class="archive-card"><div class="archive-ticker">COIN</div><div class="archive-date">2025-06-18</div></div></a>
-                    <a class="archive-link" href="public/archive/COO_20250619.html"><div class="archive-card"><div class="archive-ticker">COO</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/COST_20250619.html"><div class="archive-card"><div class="archive-ticker">COST</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/CRWD_20250619.html"><div class="archive-card"><div class="archive-ticker">CRWD</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/CSCO_20250619.html"><div class="archive-card"><div class="archive-ticker">CSCO</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/CVS_20250619.html"><div class="archive-card"><div class="archive-ticker">CVS</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/DDOG_20250619.html"><div class="archive-card"><div class="archive-ticker">DDOG</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/DIS_20250619.html"><div class="archive-card"><div class="archive-ticker">DIS</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/DOV_20250619.html"><div class="archive-card"><div class="archive-ticker">DOV</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/DUK_20250619.html"><div class="archive-card"><div class="archive-ticker">DUK</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/EFX_20250619.html"><div class="archive-card"><div class="archive-ticker">EFX</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/EOG_20250619.html"><div class="archive-card"><div class="archive-ticker">EOG</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/ETSY_20250619.html"><div class="archive-card"><div class="archive-ticker">ETSY</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/FE_20250619.html"><div class="archive-card"><div class="archive-ticker">FE</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/FOX_20250619.html"><div class="archive-card"><div class="archive-ticker">FOX</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/FSLR_20250619.html"><div class="archive-card"><div class="archive-ticker">FSLR</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/FTNT_20250619.html"><div class="archive-card"><div class="archive-ticker">FTNT</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/GILD_20250619.html"><div class="archive-card"><div class="archive-ticker">GILD</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/GOOGL_20250619.html"><div class="archive-card"><div class="archive-ticker">GOOGL</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/GS_20250619.html"><div class="archive-card"><div class="archive-ticker">GS</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/HON_20250619.html"><div class="archive-card"><div class="archive-ticker">HON</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/HOOD_20250618.html"><div class="archive-card"><div class="archive-ticker">HOOD</div><div class="archive-date">2025-06-18</div></div></a>
-                    <a class="archive-link" href="public/archive/HUM_20250619.html"><div class="archive-card"><div class="archive-ticker">HUM</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/INTC_20250619.html"><div class="archive-card"><div class="archive-ticker">INTC</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/INTU_20250619.html"><div class="archive-card"><div class="archive-ticker">INTU</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/JBL_20250619.html"><div class="archive-card"><div class="archive-ticker">JBL</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/JNJ_20250619.html"><div class="archive-card"><div class="archive-ticker">JNJ</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/JPM_20250619.html"><div class="archive-card"><div class="archive-ticker">JPM</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/KMX_20250619.html"><div class="archive-card"><div class="archive-ticker">KMX</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/LMT_20250619.html"><div class="archive-card"><div class="archive-ticker">LMT</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/LLY_20250618.html"><div class="archive-card"><div class="archive-ticker">LLY</div><div class="archive-date">2025-06-18</div></div></a>
-                    <a class="archive-link" href="public/archive/MA_20250619.html"><div class="archive-card"><div class="archive-ticker">MA</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/MAR_20250619.html"><div class="archive-card"><div class="archive-ticker">MAR</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/MCHP_20250619.html"><div class="archive-card"><div class="archive-ticker">MCHP</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/MDT_20250619.html"><div class="archive-card"><div class="archive-ticker">MDT</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/META_20250619.html"><div class="archive-card"><div class="archive-ticker">META</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/MRK_20250619.html"><div class="archive-card"><div class="archive-ticker">MRK</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/MRVL_20250619.html"><div class="archive-card"><div class="archive-ticker">MRVL</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/MS_20250619.html"><div class="archive-card"><div class="archive-ticker">MS</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/MSFT_20250619.html"><div class="archive-card"><div class="archive-ticker">MSFT</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/MU_20250619.html"><div class="archive-card"><div class="archive-ticker">MU</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/NFLX_20250619.html"><div class="archive-card"><div class="archive-ticker">NFLX</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/NUE_20250619.html"><div class="archive-card"><div class="archive-ticker">NUE</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/NVDA_20250619.html"><div class="archive-card"><div class="archive-ticker">NVDA</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/PCG_20250619.html"><div class="archive-card"><div class="archive-ticker">PCG</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/PFE_20250619.html"><div class="archive-card"><div class="archive-ticker">PFE</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/PGR_20250619.html"><div class="archive-card"><div class="archive-ticker">PGR</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/PLTR_20250619.html"><div class="archive-card"><div class="archive-ticker">PLTR</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/QCOM_20250619.html"><div class="archive-card"><div class="archive-ticker">QCOM</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/ROKU_20250619.html"><div class="archive-card"><div class="archive-ticker">ROKU</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/RTX_20250619.html"><div class="archive-card"><div class="archive-ticker">RTX</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/SHOP_20250619.html"><div class="archive-card"><div class="archive-ticker">SHOP</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/SNAP_20250619.html"><div class="archive-card"><div class="archive-ticker">SNAP</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/SNOW_20250619.html"><div class="archive-card"><div class="archive-ticker">SNOW</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/T_20250619.html"><div class="archive-card"><div class="archive-ticker">T</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/TMUS_20250619.html"><div class="archive-card"><div class="archive-ticker">TMUS</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/TSLA_20250619.html"><div class="archive-card"><div class="archive-ticker">TSLA</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/TTD_20250619.html"><div class="archive-card"><div class="archive-ticker">TTD</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/TXN_20250619.html"><div class="archive-card"><div class="archive-ticker">TXN</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/UBER_20250619.html"><div class="archive-card"><div class="archive-ticker">UBER</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/UNH_20250619.html"><div class="archive-card"><div class="archive-ticker">UNH</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/USB_20250619.html"><div class="archive-card"><div class="archive-ticker">USB</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/V_20250619.html"><div class="archive-card"><div class="archive-ticker">V</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/WBD_20250619.html"><div class="archive-card"><div class="archive-ticker">WBD</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/WDAY_20250619.html"><div class="archive-card"><div class="archive-ticker">WDAY</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/WFC_20250619.html"><div class="archive-card"><div class="archive-ticker">WFC</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/WMT_20250619.html"><div class="archive-card"><div class="archive-ticker">WMT</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/XOM_20250619.html"><div class="archive-card"><div class="archive-ticker">XOM</div><div class="archive-date">2025-06-19</div></div></a>
-                    <a class="archive-link" href="public/archive/ZS_20250619.html"><div class="archive-card"><div class="archive-ticker">ZS</div><div class="archive-date">2025-06-19</div></div></a>
+                    <a class="archive-link" href="archive/AAPL_20250619.html"><div class="archive-card"><div class="archive-ticker">AAPL</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/ABT_20250619.html"><div class="archive-card"><div class="archive-ticker">ABT</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/AEP_20250619.html"><div class="archive-card"><div class="archive-ticker">AEP</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/AES_20250619.html"><div class="archive-card"><div class="archive-ticker">AES</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/AMD_20250619.html"><div class="archive-card"><div class="archive-ticker">AMD</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/AMZN_20250619.html"><div class="archive-card"><div class="archive-ticker">AMZN</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/ASML_20250619.html"><div class="archive-card"><div class="archive-ticker">ASML</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/AVGO_20250619.html"><div class="archive-card"><div class="archive-ticker">AVGO</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/AXP_20250619.html"><div class="archive-card"><div class="archive-ticker">AXP</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/BA_20250619.html"><div class="archive-card"><div class="archive-ticker">BA</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/BAC_20250619.html"><div class="archive-card"><div class="archive-ticker">BAC</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/BILL_20250619.html"><div class="archive-card"><div class="archive-ticker">BILL</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/BLK_20250619.html"><div class="archive-card"><div class="archive-ticker">BLK</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/BRO_20250619.html"><div class="archive-card"><div class="archive-ticker">BRO</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/C_20250619.html"><div class="archive-card"><div class="archive-ticker">C</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/COIN_20250618.html"><div class="archive-card"><div class="archive-ticker">COIN</div><div class="archive-date">18/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/COO_20250619.html"><div class="archive-card"><div class="archive-ticker">COO</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/COST_20250619.html"><div class="archive-card"><div class="archive-ticker">COST</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/CRWD_20250619.html"><div class="archive-card"><div class="archive-ticker">CRWD</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/CSCO_20250619.html"><div class="archive-card"><div class="archive-ticker">CSCO</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/CVS_20250619.html"><div class="archive-card"><div class="archive-ticker">CVS</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/DDOG_20250619.html"><div class="archive-card"><div class="archive-ticker">DDOG</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/DIS_20250619.html"><div class="archive-card"><div class="archive-ticker">DIS</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/DOV_20250619.html"><div class="archive-card"><div class="archive-ticker">DOV</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/DUK_20250619.html"><div class="archive-card"><div class="archive-ticker">DUK</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/EFX_20250619.html"><div class="archive-card"><div class="archive-ticker">EFX</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/EOG_20250619.html"><div class="archive-card"><div class="archive-ticker">EOG</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/ETSY_20250619.html"><div class="archive-card"><div class="archive-ticker">ETSY</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/FE_20250619.html"><div class="archive-card"><div class="archive-ticker">FE</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/FOX_20250619.html"><div class="archive-card"><div class="archive-ticker">FOX</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/FSLR_20250619.html"><div class="archive-card"><div class="archive-ticker">FSLR</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/FTNT_20250619.html"><div class="archive-card"><div class="archive-ticker">FTNT</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/GILD_20250619.html"><div class="archive-card"><div class="archive-ticker">GILD</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/GOOGL_20250619.html"><div class="archive-card"><div class="archive-ticker">GOOGL</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/GS_20250619.html"><div class="archive-card"><div class="archive-ticker">GS</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/HON_20250619.html"><div class="archive-card"><div class="archive-ticker">HON</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/HOOD_20250618.html"><div class="archive-card"><div class="archive-ticker">HOOD</div><div class="archive-date">18/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/HUM_20250619.html"><div class="archive-card"><div class="archive-ticker">HUM</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/INTC_20250619.html"><div class="archive-card"><div class="archive-ticker">INTC</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/INTU_20250619.html"><div class="archive-card"><div class="archive-ticker">INTU</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/JBL_20250619.html"><div class="archive-card"><div class="archive-ticker">JBL</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/JNJ_20250619.html"><div class="archive-card"><div class="archive-ticker">JNJ</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/JPM_20250619.html"><div class="archive-card"><div class="archive-ticker">JPM</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/KMX_20250619.html"><div class="archive-card"><div class="archive-ticker">KMX</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/LMT_20250619.html"><div class="archive-card"><div class="archive-ticker">LMT</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/LLY_20250618.html"><div class="archive-card"><div class="archive-ticker">LLY</div><div class="archive-date">18/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/MA_20250619.html"><div class="archive-card"><div class="archive-ticker">MA</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/MAR_20250619.html"><div class="archive-card"><div class="archive-ticker">MAR</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/MCHP_20250619.html"><div class="archive-card"><div class="archive-ticker">MCHP</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/MDT_20250619.html"><div class="archive-card"><div class="archive-ticker">MDT</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/META_20250619.html"><div class="archive-card"><div class="archive-ticker">META</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/MRK_20250619.html"><div class="archive-card"><div class="archive-ticker">MRK</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/MRVL_20250619.html"><div class="archive-card"><div class="archive-ticker">MRVL</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/MS_20250619.html"><div class="archive-card"><div class="archive-ticker">MS</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/MSFT_20250619.html"><div class="archive-card"><div class="archive-ticker">MSFT</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/MU_20250619.html"><div class="archive-card"><div class="archive-ticker">MU</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/NFLX_20250619.html"><div class="archive-card"><div class="archive-ticker">NFLX</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/NUE_20250619.html"><div class="archive-card"><div class="archive-ticker">NUE</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/NVDA_20250619.html"><div class="archive-card"><div class="archive-ticker">NVDA</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/PCG_20250619.html"><div class="archive-card"><div class="archive-ticker">PCG</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/PFE_20250619.html"><div class="archive-card"><div class="archive-ticker">PFE</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/PGR_20250619.html"><div class="archive-card"><div class="archive-ticker">PGR</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/PLTR_20250619.html"><div class="archive-card"><div class="archive-ticker">PLTR</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/QCOM_20250619.html"><div class="archive-card"><div class="archive-ticker">QCOM</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/ROKU_20250619.html"><div class="archive-card"><div class="archive-ticker">ROKU</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/RTX_20250619.html"><div class="archive-card"><div class="archive-ticker">RTX</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/SHOP_20250619.html"><div class="archive-card"><div class="archive-ticker">SHOP</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/SNAP_20250619.html"><div class="archive-card"><div class="archive-ticker">SNAP</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/SNOW_20250619.html"><div class="archive-card"><div class="archive-ticker">SNOW</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/T_20250619.html"><div class="archive-card"><div class="archive-ticker">T</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/TMUS_20250619.html"><div class="archive-card"><div class="archive-ticker">TMUS</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/TSLA_20250619.html"><div class="archive-card"><div class="archive-ticker">TSLA</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/TTD_20250619.html"><div class="archive-card"><div class="archive-ticker">TTD</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/TXN_20250619.html"><div class="archive-card"><div class="archive-ticker">TXN</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/UBER_20250619.html"><div class="archive-card"><div class="archive-ticker">UBER</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/UNH_20250619.html"><div class="archive-card"><div class="archive-ticker">UNH</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/USB_20250619.html"><div class="archive-card"><div class="archive-ticker">USB</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/V_20250619.html"><div class="archive-card"><div class="archive-ticker">V</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/WBD_20250619.html"><div class="archive-card"><div class="archive-ticker">WBD</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/WDAY_20250619.html"><div class="archive-card"><div class="archive-ticker">WDAY</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/WFC_20250619.html"><div class="archive-card"><div class="archive-ticker">WFC</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/WMT_20250619.html"><div class="archive-card"><div class="archive-ticker">WMT</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/XOM_20250619.html"><div class="archive-card"><div class="archive-ticker">XOM</div><div class="archive-date">19/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/ZS_20250619.html"><div class="archive-card"><div class="archive-ticker">ZS</div><div class="archive-date">19/06/2025</div></div></a>
                     
                     <!-- 20250618 -->
-                    <a class="archive-link" href="public/archive/AAPL_20250618.html"><div class="archive-card"><div class="archive-ticker">AAPL</div><div class="archive-date">2025-06-18</div></div></a>
-                    <a class="archive-link" href="public/archive/AMD_20250618.html"><div class="archive-card"><div class="archive-ticker">AMD</div><div class="archive-date">2025-06-18</div></div></a>
-                    <a class="archive-link" href="public/archive/AMZN_20250618.html"><div class="archive-card"><div class="archive-ticker">AMZN</div><div class="archive-date">2025-06-18</div></div></a>
-                    <a class="archive-link" href="public/archive/AVGO_20250618.html"><div class="archive-card"><div class="archive-ticker">AVGO</div><div class="archive-date">2025-06-18</div></div></a>
-                    <a class="archive-link" href="public/archive/GOOGL_20250618.html"><div class="archive-card"><div class="archive-ticker">GOOGL</div><div class="archive-date">2025-06-18</div></div></a>
-                    <a class="archive-link" href="public/archive/JPM_20250618.html"><div class="archive-card"><div class="archive-ticker">JPM</div><div class="archive-date">2025-06-18</div></div></a>
-                    <a class="archive-link" href="public/archive/META_20250618.html"><div class="archive-card"><div class="archive-ticker">META</div><div class="archive-date">2025-06-18</div></div></a>
-                    <a class="archive-link" href="public/archive/MSFT_20250618.html"><div class="archive-card"><div class="archive-ticker">MSFT</div><div class="archive-date">2025-06-18</div></div></a>
-                    <a class="archive-link" href="public/archive/NVDA_20250618.html"><div class="archive-card"><div class="archive-ticker">NVDA</div><div class="archive-date">2025-06-18</div></div></a>
-                    <a class="archive-link" href="public/archive/PLTR_20250618.html"><div class="archive-card"><div class="archive-ticker">PLTR</div><div class="archive-date">2025-06-18</div></div></a>
-                    <a class="archive-link" href="public/archive/TSLA_20250618.html"><div class="archive-card"><div class="archive-ticker">TSLA</div><div class="archive-date">2025-06-18</div></div></a>
-                    <a class="archive-link" href="public/archive/UNH_20250618.html"><div class="archive-card"><div class="archive-ticker">UNH</div><div class="archive-date">2025-06-18</div></div></a>
-                    <a class="archive-link" href="public/archive/V_20250618.html"><div class="archive-card"><div class="archive-ticker">V</div><div class="archive-date">2025-06-18</div></div></a>
-                    <a class="archive-link" href="public/archive/XOM_20250618.html"><div class="archive-card"><div class="archive-ticker">XOM</div><div class="archive-date">2025-06-18</div></div></a>
+                    <a class="archive-link" href="archive/AAPL_20250618.html"><div class="archive-card"><div class="archive-ticker">AAPL</div><div class="archive-date">18/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/AMD_20250618.html"><div class="archive-card"><div class="archive-ticker">AMD</div><div class="archive-date">18/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/AMZN_20250618.html"><div class="archive-card"><div class="archive-ticker">AMZN</div><div class="archive-date">18/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/AVGO_20250618.html"><div class="archive-card"><div class="archive-ticker">AVGO</div><div class="archive-date">18/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/GOOGL_20250618.html"><div class="archive-card"><div class="archive-ticker">GOOGL</div><div class="archive-date">18/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/JPM_20250618.html"><div class="archive-card"><div class="archive-ticker">JPM</div><div class="archive-date">18/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/META_20250618.html"><div class="archive-card"><div class="archive-ticker">META</div><div class="archive-date">18/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/MSFT_20250618.html"><div class="archive-card"><div class="archive-ticker">MSFT</div><div class="archive-date">18/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/NVDA_20250618.html"><div class="archive-card"><div class="archive-ticker">NVDA</div><div class="archive-date">18/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/PLTR_20250618.html"><div class="archive-card"><div class="archive-ticker">PLTR</div><div class="archive-date">18/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/TSLA_20250618.html"><div class="archive-card"><div class="archive-ticker">TSLA</div><div class="archive-date">18/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/UNH_20250618.html"><div class="archive-card"><div class="archive-ticker">UNH</div><div class="archive-date">18/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/V_20250618.html"><div class="archive-card"><div class="archive-ticker">V</div><div class="archive-date">18/06/2025</div></div></a>
+                    <a class="archive-link" href="archive/XOM_20250618.html"><div class="archive-card"><div class="archive-ticker">XOM</div><div class="archive-date">18/06/2025</div></div></a>
                 </div>
             </div>
         </div>
