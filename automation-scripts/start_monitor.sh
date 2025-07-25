@@ -44,7 +44,7 @@ fi
 
 # Start the automation system
 echo "🔄 Starting automation monitor..."
-echo "📁 Monitoring directory: public/archive"
+echo "📁 Monitoring directory: archive"
 echo "⏰ Check interval: 30 seconds"
 echo "💤 Press Ctrl+C to stop"
 echo ""
